@@ -9,4 +9,12 @@ public:
   ~Board() { ;}
 
   void display();
+
+  void makeValidRow(int idx);
+
+  void makeValidCol(int idx);
+
+  void allRowsValid();
+
+  void allColsValid();
 };

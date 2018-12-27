@@ -36,3 +36,7 @@ void Subsection::setCells() {
 char Subsection::getEntry(int i, int j) {
   return cells[i][j];
 }
+
+void Subsection::setEntry(int r, int c, char entry) {
+  cells[r][c] = entry;
+}

@@ -4,7 +4,7 @@
 #include <string>
 #include "board.h"
 
-using std::cout;  using std::endl;
+using std::cout;    using std::endl;
 using std::string;
 
 int main() {
@@ -12,8 +12,9 @@ int main() {
   srand(time(0)); // random seed
 
   // initializing a sudoku board array
-  Board b;
-  b.display();
-
+  Board newBoard;
+  newBoard.allRowsValid();
+  newBoard.allColsValid();
+  newBoard.display();
   return 0;
 }

@@ -25,5 +25,7 @@ public:
 
   void setCells();
 
+  void setEntry(int r, int c, char entry);
+
   char getEntry(int i, int j);
 };
