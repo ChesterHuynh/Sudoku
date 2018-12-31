@@ -34,13 +34,19 @@ int main(int argc, char* argv[]) {
         board[i][j] = entry;
       }
     }
+    if (isValidBoard(board)) {
+      cout << "Sudoku board was successfully loaded!" << endl;
+    }
+    else {
+      cout << "Invalid board" << endl;
+      return 1;
+    }
   }
-  cout << "Sudoku board was successfully loaded!" << endl;
   display(board);
   char move;
   cout << "What would you like to do:\n"
-       << "(1) Add entry (indexing starts at 0 -- type a row #, col #, and entry to input)\n"
-       << "(2) Remove entry (indexing starts at 0 -- type the row and col # of entry to delete)\n"
+       << "(1) Add entry\n"
+       << "(2) Remove entry\n"
        << "(3) Save progress\n"
        << "(4) Solve\n"
        << "(5) Quit\n";
@@ -77,8 +83,8 @@ int main(int argc, char* argv[]) {
     }
     display(board);
     cout << "What would you like to do:\n"
-         << "(1) Add entry (indexing starts at 0 -- type a row #, col #, and entry to input)\n"
-         << "(2) Remove entry (indexing starts at 0 -- type the row and col # of entry to delete)\n"
+         << "(1) Add entry\n"
+         << "(2) Remove entry\n"
          << "(3) Save progress\n"
          << "(4) Solve\n"
          << "(5) Quit\n";
