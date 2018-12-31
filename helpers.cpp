@@ -112,7 +112,7 @@ bool findUnassignedLocation(char board[][9], int& row, int& col) {
 
 bool usedInRow(char board[][9], int row, int num) {
   for (int col = 0; col < 9; col++) {
-    if (board[row][col] == num) {
+    if (board[row][col] == '0' + num) {
       return true;
     }
   }
@@ -121,7 +121,7 @@ bool usedInRow(char board[][9], int row, int num) {
 
 bool usedInCol(char board[][9], int col, int num) {
   for (int row = 0; row < 9; row++) {
-    if (board[row][col] == num) {
+    if (board[row][col] == '0' + num) {
       return true;
     }
   }
@@ -131,7 +131,7 @@ bool usedInCol(char board[][9], int col, int num) {
 bool usedInBox(char board[][9], int startRow, int startCol, int num) {
   for (int row = startRow; row < startRow + 3; row++) {
     for (int col = startCol; col < startCol + 3; col++) {
-      if (board[row][col] == num) {
+      if (board[row][col] == '0' + num) {
         return true;
       }
     }
@@ -149,7 +149,6 @@ bool solve(char board[][9]) {
     return true; // no empty spaces
   }
   for (int num = 1; num <= 9; num++) {
-    cout << row << ' ' << col << ' ' << num << endl;
     if (isSafe(board, row, col, num)) {
       board[row][col] = '0' + num;
       if (solve(board)) {
@@ -158,5 +157,6 @@ bool solve(char board[][9]) {
       board[row][col] = '.';
     }
   }
+
   return false;
 }
