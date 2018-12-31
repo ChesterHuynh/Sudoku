@@ -13,13 +13,23 @@ void display(char board[][9]) {
   for (int i = 0; i < 9; i++) {
     for (int j = 0; j < 9; j++){
       cout << board[i][j] << ' ';
+      if ((j+1) % 3 == 0)
+        cout << '|';
     }
     cout << endl;
+    if ((i+1) % 3 == 0)
+      cout << "---------------------" << endl;
   }
 }
 
 void add(char board[][9], int r, int c, char entry) {
-  board[r][c] = entry;
+  int num = entry - '0';
+  if (!usedInRow(board, r, num) && !usedInCol(board, c, num) && !usedInBox(board, r, c, num) && (board[r][c] == '.')) {
+    board[r][c] = entry;
+  }
+  else {
+    cout << "Invalid move!" << endl;
+  }
 }
 
 void remove(char board[][9], int r, int c) {
@@ -27,7 +37,7 @@ void remove(char board[][9], int r, int c) {
 }
 
 void save(char board[][9]) {
-  cout << "save filename: ";
+  cout << "Save filename: ";
   string filename;
   cin >> filename;
   std::ofstream savefile(filename);

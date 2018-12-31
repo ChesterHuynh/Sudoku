@@ -57,19 +57,27 @@ int main(int argc, char* argv[]) {
       case '1': {
         int r, c;
         char entry;
-        cin >> r >> c >> entry;
+        cout << "row index: ";
+        cin >> r;
+        cout << "column index: ";
+        cin >> c;
+        cout << "number to insert: ";
+        cin >> entry;
         add(board, r, c, entry);
         break;
       }
       case '2': {
         int r, c;
-        cin >> r >> c;
+        cout << "row index: ";
+        cin >> r;
+        cout << "column index: ";
+        cin >> c;
         remove(board, r, c);
         break;
       }
       case '3': {
         save(board);
-        break;
+        return 0;
       }
       case '4': {
         solve(board);
